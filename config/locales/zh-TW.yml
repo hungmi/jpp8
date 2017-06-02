@@ -1,0 +1,30 @@
+zh-TW:
+  activerecord:
+    attributes:
+      product:
+        tw_name: 中文名稱
+        foreign_name: 原文名稱
+    errors:
+      models:
+        category:
+          attributes:
+            name:
+              blank: 不可空白
+        product:
+          attributes:
+            category:
+              required: 商品須屬於一個目錄
+            ws_price:
+              blank: 不可空白
+        source:
+          attributes:
+            name:
+              blank: 不可空白
+            products:
+              blank: 商品來源須至少屬於一個商品
+        user:
+          attributes:
+            phone:
+              blank: 不可空白
+            password:
+              blank: 不可空白

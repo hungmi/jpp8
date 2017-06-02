@@ -1,14 +1,15 @@
 require "rails_helper"
 
 RSpec.describe User, :type => :model do
-  it "必須要有手機號跟密碼" do
-    user = build(:user)
-    user_without_phone = build(:user, phone: nil)
-    user_without_password = build(:user, password: nil)
-
-    expect(user.valid?).to be true
-    expect(user_without_phone.valid?).to be false
-    expect(user_without_password.valid?).to be false
+  it "必須要有手機號" do
+    user = User.new(phone: nil)
+    user.valid?
+    expect(user.errors[:phone]).to include ("不可空白")
+  end
+  it "必須要有密碼" do
+    user = User.new(password: nil)
+    user.valid?
+    expect(user.errors[:password]).to include ("不可空白")
   end
 
   it "只能使用正確的密碼驗證" do

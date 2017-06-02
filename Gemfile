@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.4.0'
+ruby '2.4.1'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -51,11 +51,9 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-# Use SCSS for stylesheets
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'jquery-rails'
 gem 'awesome_rails_console'
-gem 'bcrypt', '~> 3.1.7'
+gem "font-awesome-rails"
 
 group :development, :test do
   gem 'pry-byebug'

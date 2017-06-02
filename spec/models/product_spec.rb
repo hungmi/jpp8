@@ -13,7 +13,7 @@ RSpec.describe Product, :type => :model do
   it "必須要有批發價格" do
   	product = Product.new(ws_price: nil)
     product.valid?
-    expect(product.errors[:ws_price]).to include ("can't be blank")
+    expect(product.errors[:ws_price]).to include ("不可空白")
   end
   it "若有建議售價，需比批發價高" do
   	price = 99
@@ -25,6 +25,6 @@ RSpec.describe Product, :type => :model do
  	it "必須屬於一個目錄" do
     product = Product.new(category: nil)
     product.valid?
-    expect(product.errors[:category]).to include ("must exist")
+    expect(product.errors[:category]).to include ("商品須屬於一個目錄")
   end
 end

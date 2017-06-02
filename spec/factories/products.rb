@@ -1,11 +1,16 @@
 FactoryGirl.define do
   factory :product do
-    tw_name Faker::Name.name
-    foreign_name Faker::Name.name
+    tw_name "一個假名字"
+    foreign_name "名前"
     category
-    price = Faker::Number.number(4)
+    price = 999
     rr_price price
-    ws_price price.to_i - 1
-    stock Faker::Number.number(2)
+    ws_price price - 1
+    stock 10
+    factory :product_with_sources do
+    	after(:create) do |product, evaluator|
+        create_list(:source, 3, product: product)
+      end
+    end
   end
 end

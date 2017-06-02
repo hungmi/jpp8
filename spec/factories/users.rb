@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :user do
-  	phone "09#{Faker::Number.number(8)}"
-  	password Faker::Number.number(10)
+  	phone "0920085183"
+  	password "123456"
   end
 end

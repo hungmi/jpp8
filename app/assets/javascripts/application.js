@@ -11,5 +11,13 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require jquery3
+//= require tether.min
+//= require bootstrap.min
+//= require bootstrap-datepicker
+//= require bootstrap-switch
+//= require moment.min
+//= require nouislider.min
+//= require now-ui-kit
 //= require turbolinks
 //= require_tree .
