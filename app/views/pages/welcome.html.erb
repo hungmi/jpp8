@@ -1,178 +1,627 @@
-<div class="wrapper profile-page landing-page">
-  <div class="page-header page-header-small">
-      <div class="page-header-image" data-parallax="true" style="background-image: url('https://unsplash.it/1600/1066/?random');">
-      </div>
-      <div class="container">
-        <div class="content-center">
-            <div class="photo-container">
-              <%#= image_tag 'circle_logo.png', size: 200 %>
-              <i class="now-ui-icons objects_spaceship" style="font-size: 153px; padding: 26px;"></i>
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+<!-- Navigation -->
+    <nav id="mainNav" class="navbar navbar-default navbar-custom navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">JPP8</a>
             </div>
-            <h1 class="title">簡單穩定的<br class="hidden-md-up">批發貨源</h1>
-            <p class="category">價格優惠，商品超多，而且不需額外費用</p>
-            <div class="content">
-                <div class="social-description">
-                    <h2>30000+</h2>
-                    <p>日本正品任你挑</p>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#services">Services</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#portfolio">Portfolio</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#team">Team</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="intro-text">
+                <div class="intro-lead-in">價格優惠，商品超多，而且不需額外費用</div>
+                <div class="intro-heading">簡單穩定的批發貨源</div>
+                <a href="#services" class="page-scroll btn btn-xl">了解更多</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services">
+      <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">價格優惠，商品超多，而且無進貨壓力。</h2>
+                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            </div>
+        </div>
+        <div class="row text-center">
+          <div class="col-md-4">
+              <span class="fa-stack fa-4x">
+                  <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                  <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
+              </span>
+              <h4 class="service-heading">海量商品</h4>
+              <p class="text-muted">超過 30,000 種商品隨時等您採購，且每週推薦好東西。</p>
+          </div>
+          <div class="col-md-4">
+              <span class="fa-stack fa-4x">
+                  <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                  <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
+              </span>
+              <h4 class="service-heading">不需囤貨，一件起批</h4>
+              <p class="text-muted">所有商品都是一件起批，讓您賣多少進多少，不需承擔囤貨壓力。</p>
+          </div>
+          <div class="col-md-4">
+              <span class="fa-stack fa-4x">
+                  <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                  <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
+              </span>
+              <h4 class="service-heading">樣樣批發價</h4>
+              <p class="text-muted">我們竭力為您保有足夠毛利，提高您的銷售成績。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <style type="text/css">
+      #portfolio .img-responsive {
+        margin: 0 auto;
+        max-height: 408px;
+      }
+      #portfolio .portfolio-caption {
+        min-height: 116px;
+      }
+    </style>
+
+    <!-- Portfolio Grid Section -->
+    <section id="portfolio" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">批發價格，不限最低購買量</h2>
+                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
                 </div>
-                <div class="social-description">
-                    <h2>5折起</h2>
-                    <p>樣樣批發價</p>
+            </div>
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-6 portfolio-item">
+                    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/71TJtnnFs2L._SY606_.jpg" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>DHC ビタミンC(ハードカプセル) 60日分 120粒</h4>
+                        <p class="text-danger">￥ 339</p>
+                    </div>
                 </div>
-                <div class="social-description">
-                    <h2>1件起批</h2>
-                    <p>無壓式批發</p>
+                <div class="col-md-3 col-sm-6 col-xs-6 portfolio-item">
+                    <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/71VwT27ftqL._SY606_.jpg" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>DHC 薬用ディープクレンジングオイル (SS) 70ml</h4>
+                        <p class="text-danger">￥ 725</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-6 portfolio-item">
+                    <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/51VddaYYAUL._SY606_.jpg" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>DHC 薬用リップクリーム 1.5g (医薬部外品)</h4>
+                        <p class="text-danger">￥ 547</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-6 portfolio-item">
+                    <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/71TJtnnFs2L._SY606_.jpg" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Golden</h4>
+                        <p class="text-muted">Website Design</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-6 portfolio-item">
+                    <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/71TJtnnFs2L._SY606_.jpg" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Escape</h4>
+                        <p class="text-muted">Website Design</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-6 portfolio-item">
+                    <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
+                        <div class="portfolio-hover">
+                            <div class="portfolio-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="https://images-na.ssl-images-amazon.com/images/I/71TJtnnFs2L._SY606_.jpg" class="img-responsive" alt="">
+                    </a>
+                    <div class="portfolio-caption">
+                        <h4>Dreams</h4>
+                        <p class="text-muted">Website Design</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">進貨流程</h2>
+                    <h3 class="section-subheading text-muted">給第一次接觸批發的您</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="timeline">
+                        <li>
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/about/1.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4 style="font-weight: normal;">建立通路</h4>
+                                    <h4 class="subheading">Y拍、蝦皮，還是 FB、LINE？</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">選擇拍賣平台或是社交平台各有好處</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/about/2.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>March 2011</h4>
+                                    <h4 class="subheading">An Agency is Born</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/about/3.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>December 2012</h4>
+                                    <h4 class="subheading">Transition to Full Service</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <img class="img-circle img-responsive" src="img/about/4.jpg" alt="">
+                            </div>
+                            <div class="timeline-panel">
+                                <div class="timeline-heading">
+                                    <h4>July 2014</h4>
+                                    <h4 class="subheading">Phase Two Expansion</h4>
+                                </div>
+                                <div class="timeline-body">
+                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="timeline-inverted">
+                            <div class="timeline-image">
+                                <h4>Be Part
+                                  <br>Of Our
+                                  <br>Story!</h4>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="bg-light-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">現在就訂購看看</h2>
+                    <h3 class="section-subheading text-muted">我們精心為您挑選了三款商品</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="img/team/1.jpg" class="img-responsive img-circle" alt="">
+                        <h4>Kay Garland</h4>
+                        <p class="text-muted">Lead Designer</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="img/team/2.jpg" class="img-responsive img-circle" alt="">
+                        <h4>Larry Parker</h4>
+                        <p class="text-muted">Lead Marketer</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="team-member">
+                        <img src="img/team/3.jpg" class="img-responsive img-circle" alt="">
+                        <h4>Diana Pertersen</h4>
+                        <p class="text-muted">Lead Developer</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Clients Aside -->
+    <aside class="clients">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                        <img src="img/logos/envato.jpg" class="img-responsive img-centered" alt="">
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                        <img src="img/logos/designmodo.jpg" class="img-responsive img-centered" alt="">
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                        <img src="img/logos/themeforest.jpg" class="img-responsive img-centered" alt="">
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="#">
+                        <img src="img/logos/creative-market.jpg" class="img-responsive img-centered" alt="">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">申請加入</h2>
+                    <h3 class="section-subheading text-muted">填寫以下資料，我們將於 24 小時內與您聯繫</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <form name="sentMessage" id="contactForm" novalidate>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Your Name *" id="name" required data-validation-required-message="Please enter your name.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" class="form-control" placeholder="Your Email *" id="email" required data-validation-required-message="Please enter your email address.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="tel" class="form-control" placeholder="Your Phone *" id="phone" required data-validation-required-message="Please enter your phone number.">
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <textarea class="form-control" placeholder="Your Message *" id="message" required data-validation-required-message="Please enter a message."></textarea>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="col-lg-12 text-center">
+                                <div id="success"></div>
+                                <button type="submit" class="btn btn-xl">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy; Your Website 2016</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li><a href="#">Privacy Policy</a>
+                        </li>
+                        <li><a href="#">Terms of Use</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Portfolio Modals -->
+    <!-- Use the modals below to showcase details about your portfolio projects! -->
+
+    <!-- Portfolio Modal 1 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2>Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-responsive img-centered" src="<%#= asset_path('roundicons-free.png') %>" alt="">
+                                <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                <p>
+                                    <strong>Want these icons in this portfolio item sample?</strong>You can download 60 of them for free, courtesy of <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">RoundIcons.com</a>, or you can purchase the 1500 icon set <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.</p>
+                                <ul class="list-inline">
+                                    <li>Date: July 2014</li>
+                                    <li>Client: Round Icons</li>
+                                    <li>Category: Graphic Design</li>
+                                </ul>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-  </div>
-  <div class="section section-about-us">
-      <div class="container">
-          <div class="row">
-              <div class="col-md-8 offset-md-2 text-center">
-                  <h2 class="title">簡單穩定的批發貨源</h2>
-                  <h5 class="description">不需等待批發社團餵食商品，全站商品皆可採購，省掉漫長的詢價時間，且無最低購買量限制。</h5>
-              </div>
-          </div>
-          <div class="separator separator-primary"></div>
-          <div class="section-story-overview">
-              <div class="row">
-                  <div class="col-md-6">
-                      <div class="image-container image-left">
-                          <!-- First image on the left side -->
-                          <%= image_tag "sec2.jpg", class: "rounded img-fluid img-raised" %>
-                          <p class="blockquote blockquote-primary">"Over the span of the satellite record, Arctic sea ice has been declining significantly, while sea ice in the Antarctichas increased very slightly"
-                              <br>
-                              <br>
-                              <small>-NOAA</small>
-                          </p>
-                      </div>
-                      <!-- Second image on the left side of the article -->
-                      <div class="image-container">
-                        <%= image_tag "shops.jpg", class: "rounded img-fluid img-raised" %>
-                      </div>
-                  </div>
-                  <div class="col-md-5">
-                      <!-- First image on the right side, above the article -->
-                      <div class="image-container image-right">
-                          <%= image_tag "sec1.jpg", class: "rounded img-fluid img-raised" %>
-                      </div>
-                      <h3>每次出國批貨都像上戰場？<br>也許你可以換個方式。</h3>
-                      <p>出國批貨機票很貴，而且行李箱很重，真的不好玩。出國批貨機票很貴，而且行李箱很重，真的不好玩。出國批貨機票很貴，而且行李箱很重，真的不好玩。出國批貨機票很貴，而且行李箱很重，真的不好玩。出國批貨機票很貴，而且行李箱很重，真的不好玩。出國批貨機票很貴，而且行李箱很重，真的不好玩。出國批貨機票很貴，而且行李箱很重，真的不好玩。出國批貨機票很貴，而且行李箱很重，真的不好玩。出國批貨機票很貴，而且行李箱很重，真的不好玩。
-                      </p>
-                      <p>來自日本供應商的優質商品，透過專業的物流商，直接寄達台灣。來自日本供應商的優質商品，透過專業的物流商，直接寄達台灣。來自日本供應商的優質商品，透過專業的物流商，直接寄達台灣。來自日本供應商的優質商品，透過專業的物流商，直接寄達台灣。來自日本供應商的優質商品，透過專業的物流商，直接寄達台灣。來自日本供應商的優質商品，透過專業的物流商，直接寄達台灣。
-                      </p>
-                      <p>現在加入一件起批，未來還可享受秘密商品推薦，何樂而不為？現在加入一件起批，未來還可享受秘密商品推薦，何樂而不為？現在加入一件起批，未來還可享受秘密商品推薦，何樂而不為？現在加入一件起批，未來還可享受秘密商品推薦，何樂而不為？現在加入一件起批，未來還可享受秘密商品推薦，何樂而不為？
-                      </p>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-  <div class="section section-team text-center ">
-      <div class="container">
-          <h2 class="title">聽聽我們的合作夥伴</h2>
-          <div class="team">
-              <div class="row">
-                  <div class="col-md-4">
-                      <div class="team-player">
-                          <img src="https://unsplash.it/400/401/?random" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
-                          <h4 class="title">小奈兒</h4>
-                          <p class="category text-primary">彩妝專家</p>
-                          <p class="description">從兼職銷售日貨到專職，我一直在尋找可靠的貨源。到現在接觸的供應商也有上百家了。只有在 JPP8 讓我可以自由下單，而且是以批發的價格直接從日本採購。</p>
-                          <a href="#pablo" class="btn btn-primary btn-icon btn-icon-mini"><i class="fa fa-twitter"></i></a>
-                          <a href="#pablo" class="btn btn-primary btn-icon btn-icon-mini"><i class="fa fa-instagram"></i></a>
-                          <a href="#pablo" class="btn btn-primary btn-icon btn-icon-mini"><i class="fa fa-facebook-square"></i></a>
-                      </div>
-                  </div>
-                  <div class="col-md-4">
-                      <div class="team-player">
-                          <img src="https://unsplash.it/401/400/?random" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
-                          <h4 class="title">王小版</h4>
-                          <p class="category text-primary">蝦皮五星評價7000+</p>
-                          <p class="description">在競爭激烈的拍賣平台上，如果要取得好成績，你的進貨成本一定要夠低。用 JPP8 進貨讓我保有足夠利潤，是開發市場的絕對殺器！</p>
-                          <a href="#pablo" class="btn btn-primary btn-icon btn-icon-mini"><i class="fa fa-twitter"></i></a>
-                          <a href="#pablo" class="btn btn-primary btn-icon btn-icon-mini"><i class="fa fa-linkedin"></i></a>
-                      </div>
-                  </div>
-                  <div class="col-md-4">
-                      <div class="team-player">
-                          <img src="https://unsplash.it/400/400/?random" alt="Thumbnail Image" class="rounded-circle img-fluid img-raised">
-                          <h4 class="title">江小妹</h4>
-                          <p class="category text-primary">1500人團購主</p>
-                          <p class="description">作為一個專業揪團，一定要讓好姊妹時常有新品。JPP8 大量的商品讓我根本買不完，我只需要把好東西分享出來就行！</p>
-                          <a href="#pablo" class="btn btn-primary btn-icon btn-icon-mini"><i class="fa fa-google-plus"></i></a>
-                          <a href="#pablo" class="btn btn-primary btn-icon btn-icon-mini"><i class="fa fa-youtube-play"></i></a>
-                          <a href="#pablo" class="btn btn-primary btn-icon btn-icon-mini"><i class="fa fa-twitter"></i></a>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-  <div class="section section-contact-us text-center">
-      <div class="container">
-          <h2 class="title">現在加入<span class="hidden-sm-down">，</span><br class="hidden-md-up">完全免費<span class="hidden-sm-down">。</span></h2>
-          <p class="description">請填寫您希望我們聯絡的方式</p>
-          <div class="row">
-              <div class="col-lg-6 text-center offset-lg-3 col-md-8 offset-md-2">
-                  <div class="input-group form-group-no-border input-lg">
-                      <span class="input-group-addon">
-                        手機號碼
-                      </span>
-                      <input type="text" class="form-control" placeholder="台灣手機號碼">
-                  </div>
-                  <div class="input-group form-group-no-border input-lg">
-                      <span class="input-group-addon">
-                        LINE ID
-                      </span>
-                      <input type="text" class="form-control" placeholder="LINE 帳號 ID">
-                  </div>
-                  <div class="textarea-container">
-                      <textarea class="form-control" name="name" rows="4" cols="80" placeholder="有任何疑問嗎？"></textarea>
-                  </div>
-                  <div class="send-button">
-                      <a href="#pablo" class="btn btn-primary btn-round btn-block btn-lg">免費申請</a>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-  <footer class="footer footer-default">
-      <div class="container">
-          <nav>
-              <ul>
-                  <li>
-                      <a href="#">
-                          JPP8
-                      </a>
-                  </li>
-                  <li>
-                      <a href="#">
-                          About Us
-                      </a>
-                  </li>
-                  <li>
-                      <a href="#">
-                          Blog
-                      </a>
-                  </li>
-                  <li>
-                      <a href="#">
-                          MIT License
-                      </a>
-                  </li>
-              </ul>
-          </nav>
-          <div class="copyright">
-              &copy;
-              <script>
-                  document.write(new Date().getFullYear())
-              </script>, Designed by
-              <a href="http://www.invisionapp.com" target="_blank">Invision</a>. Coded by
-              <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a>.
-          </div>
-      </div>
-  </footer>
-</div>
+
+    <!-- Portfolio Modal 2 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="modal-body">
+                                <h2>Project Heading</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-responsive img-centered" src="<%#= asset_path('startup-framework-preview.png') %>" alt="">
+                                <p><a href="http://designmodo.com/startup/?u=787">Startup Framework</a> is a website builder for professionals. Startup Framework contains components and complex blocks (PSD+HTML Bootstrap themes and templates) which can easily be integrated into almost any design. All of these components are made in the same style, and can easily be integrated into projects, allowing you to create hundreds of solutions for your future projects.</p>
+                                <p>You can preview Startup Framework <a href="http://designmodo.com/startup/?u=787">here</a>.</p>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Modal 3 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2>Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-responsive img-centered" src="<%#= asset_path('treehouse-preview.png') %>" alt="">
+                                <p>Treehouse is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. This is bright and spacious design perfect for people or startup companies looking to showcase their apps or other projects.</p>
+                                <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/treehouse-free-psd-web-template/">FreebiesXpress.com</a>.</p>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Modal 4 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2>Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-responsive img-centered" src="<%#= asset_path('golden-preview.png') %>" alt="">
+                                <p>Start Bootstrap's Agency theme is based on Golden, a free PSD website template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Golden is a modern and clean one page web template that was made exclusively for Best PSD Freebies. This template has a great portfolio, timeline, and meet your team sections that can be easily modified to fit your needs.</p>
+                                <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/golden-free-one-page-web-template/">FreebiesXpress.com</a>.</p>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Modal 5 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2>Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-responsive img-centered" src="<%#= asset_path('escape-preview.png') %>" alt="">
+                                <p>Escape is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Escape is a one page web template that was designed with agencies in mind. This template is ideal for those looking for a simple one page solution to describe your business and offer your services.</p>
+                                <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/escape-one-page-psd-web-template/">FreebiesXpress.com</a>.</p>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Modal 6 -->
+    <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 col-lg-offset-2">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2>Project Name</h2>
+                                <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                <img class="img-responsive img-centered" src="<%#= asset_path('dreams-preview.png') %>" alt="">
+                                <p>Dreams is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Dreams is a modern one page web template designed for almost any purpose. It’s a beautiful template that’s designed with the Bootstrap framework in mind.</p>
+                                <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/dreams-free-one-page-web-template/">FreebiesXpress.com</a>.</p>
+                                <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

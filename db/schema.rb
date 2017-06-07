@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20170602083543) do
     t.bigint "category_id"
     t.bigint "rr_price"
     t.bigint "ws_price"
+    t.bigint "shipping_weight"
     t.integer "stock"
     t.string "item_code"
     t.string "material"

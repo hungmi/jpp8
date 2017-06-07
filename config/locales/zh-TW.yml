@@ -4,6 +4,13 @@ zh-TW:
       product:
         tw_name: 中文名稱
         foreign_name: 原文名稱
+        category: 商品分類
+        rr_price: 建議售價
+        ws_price: 批發價
+        shipping_weight: 運送重量
+        stock: 庫存量
+        description: 商品描述
+        origin: 製造地
     errors:
       models:
         category:

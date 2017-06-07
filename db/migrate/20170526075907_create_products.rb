@@ -6,6 +6,7 @@ class CreateProducts < ActiveRecord::Migration[5.1]
       t.references :category
       t.bigint :rr_price # recommended retail price
       t.bigint :ws_price # wholesale_price
+      t.bigint :shipping_weight # shipping weight
       t.integer :stock
 			# t.integer :ranking
 

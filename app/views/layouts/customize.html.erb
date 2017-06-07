@@ -9,14 +9,11 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload', async: true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <!-- Plugin JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <%= yield :css %>
     <%= yield :js %>
   </head>
 
-  <body class="container">
-  	<%= render "partials/nav" %>
+  <body>
     <%= yield %>
   </body>
 </html>
