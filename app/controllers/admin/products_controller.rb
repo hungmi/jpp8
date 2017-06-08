@@ -5,6 +5,7 @@ class Admin::ProductsController < AdminController
 	end
 
 	def index
+		@turbolinks_cache_control = 'no-preview'
 		@title = "商品資料庫"
 	end
 end

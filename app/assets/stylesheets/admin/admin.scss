@@ -1,11 +1,9 @@
 // Custom bootstrap variables
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "bootstrap-readable.min";
 @import "bootstrap-overrides";
 @import "font-awesome";
-@import "admin/metisMenu.min";
-@import "admin/morris";
+// @import "admin/morris";
 @import "dataTables.bootstrap";
 @import "dataTables.responsive";
-@import "admin/sb-admin-2";
+@import "general";

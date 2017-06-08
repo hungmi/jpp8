@@ -55,6 +55,7 @@ gem 'jquery-rails'
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'awesome_rails_console'
 gem "font-awesome-rails"
+gem "chartkick"
 
 group :development, :test do
   gem 'pry-byebug'

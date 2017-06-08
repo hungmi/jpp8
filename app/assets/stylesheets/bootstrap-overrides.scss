@@ -1,3 +1,4 @@
+[lang^="zh"] body { font-family: "Microsoft JhengHei","Hiragino Sans GB","华文细黑","STHeiti","微软雅黑","Microsoft YaHei",SimHei,"Helvetica Neue",Helvetica,Arial,sans-serif !important }
 .pr-0 { padding-right: 0px; }
 .pl-0 { padding-left: 0px; }
 .pt-0 { padding-top: 0px; }
@@ -6,7 +7,17 @@
 	padding-left: 0px;
 	padding-right: 0px;
 }
+.ph-2 {
+	padding-left: 20px;
+	padding-right: 20px;	
+}
 .pv-0 {
 	padding-top: 0px;
 	padding-bottom: 0px;
+}
+.p-0 {
+	padding: 0px;
+}
+a {
+	color: cornflowerblue;
 }

@@ -1,0 +1,61 @@
+$primary-color: #831f27;
+$semi-primary-color: #a02d36;
+.admin {
+	background-color: #f8f8f8;
+	.btn {
+		border: 1px solid white;
+		&.btn-primary {
+			background-color: $semi-primary-color;
+			&:hover {
+				background-color: $primary-color;
+			}
+		}
+	}
+	.content-wrapper {
+		background-color: white;
+		.panel {
+			border-color: $primary-color;
+		}
+		.panel-heading {
+			background-color: #f8f8f8;
+			color: $primary-color;
+		}
+	}
+	nav.navbar-primary {
+		margin-bottom: 0px;
+		background-color: $primary-color;
+		border: none;
+		border-radius: 0px;
+		.navbar-brand {
+			font-weight: bold;
+			letter-spacing: 1px;
+		}
+		a {
+			color: #f8f8f8;
+			&:hover, &:focus {
+				background-color: $semi-primary-color;
+			}
+		}
+		.open > a {
+			background-color: $semi-primary-color;
+		}
+		.dropdown-menu > li > a {
+			color: $primary-color;
+			&:hover {
+				color: #f8f8f8;
+			}
+		}
+		input {
+			border-radius: 0px;
+		}
+		.btn {
+			border-width: 2px !important;
+		}
+	}
+	.page-header {
+		margin-top: 20px;
+	}
+	.sidebar {
+		padding: 10px 15px 10px 15px;
+	}
+}
