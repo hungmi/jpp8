@@ -6,7 +6,7 @@ FactoryGirl.define do
     price = 999
     rr_price price
     ws_price price - 1
-    shipping_fee 100
+    shipping_weight 80
     stock 10
     factory :product_with_sources do
     	after(:create) do |product, evaluator|

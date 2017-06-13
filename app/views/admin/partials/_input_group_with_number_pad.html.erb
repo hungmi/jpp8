@@ -1,0 +1,16 @@
+<div class="form-group">
+	<%= f.label attr_sym1, class: "col-xs-12 col-sm-2 col-lg-2 control-label" %>
+	<div class="col-xs-12 col-sm-4 col-lg-3">
+	  <div class="input-group">
+	    <span class="input-group-addon"><i class="fa fa-yen"></i></span>
+	    <%= f.input_field attr_sym1, class: "form-control", type: :text, pattern: "\\d*" %>
+	  </div>
+	</div>
+	<div class="col-xs-2 col-sm-1 text-center" style="padding: 9px 0px;"><i class="fa fa-exchange"></i></div>
+	<div class="col-xs-10 col-sm-4 col-lg-3">
+	  <div class="input-group">
+	    <span class="input-group-addon">NT$</span>
+	    <%= text_field_tag attr_sym2, nil, class: "form-control", type: :text, pattern: "\\d*" %>
+	  </div>
+	</div>
+</div>

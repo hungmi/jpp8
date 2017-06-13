@@ -1,94 +1,98 @@
-<%= form_for @product, html: { class: "form-horizontal" } do |f| %>
-	<div class="form-group">
-		<%= f.label :tw_name, class: "col-lg-2 control-label" %>
-		<div class="col-lg-6">
-			<%= f.text_field :tw_name, class: "form-control" %>
-		</div>
-	</div>
-	<div class="form-group">
-		<%= f.label :foreign_name, class: "col-lg-2 control-label" %>
-		<div class="col-lg-6">
-			<%= f.text_field :foreign_name, class: "form-control" %>
-		</div>
-	</div>
-	<div class="form-group">
-		<%= f.label :category, class: "col-lg-2 control-label" %>
-		<div class="col-lg-4">
-			<%= f.select :category_id, Category.all.collect { |c| [c.name, c.id] }, {}, class: "form-control" %>
-		</div>
-	</div>
-	<div class="form-group">
-		<%= f.label :origin, class: "col-lg-2 control-label" %>
-		<div class="col-lg-4">
-	    <%= f.text_field :origin, class: "form-control" %>
-	  </div>
-	</div>
-	<div class="form-group">
-		<%= f.label :description, class: "col-lg-2 control-label" %>
-		<div class="col-lg-8">
-	    <%= f.text_area :description, class: "form-control" %>
-	  </div>
-	</div>
+<%= simple_form_for [:admin, @product], wrapper: :horizontal_form, html: { class: "form-horizontal" } do |f| %>
+	<%= f.input :tw_name %>
+	<%= f.input :foreign_name %>
+	<%= f.association :category %>
+	<%= f.input :origin %>
+	<%= f.input :description, as: :text, input_html: { rows: 8 } %>
 	<hr>
-	<div class="col-lg-offset-2">
-		<p>本日匯率：1 日圓 ＝ 0.29 新台幣</p>
-	</div>
+
+	<dl class="col-xs-12 col-sm-offset-2 col-sm-5 col-lg-offset-2 col-lg-4">
+		<dt>本日匯率</dt>
+		<dd><i class="fa fa-yen"></i> <strong>1</strong> 日圓 ＝ NT$ <strong id="today_currency_hint">0.0</strong></dd>
+	</dl>
+	<div class="clearfix"></div>
+
+	<%= render partial: "admin/partials/input_group_with_number_pad", locals: { f: f, attr_sym1: :rr_price, attr_sym2: :local_rr_price } %>
+	<%= render partial: "admin/partials/input_group_with_number_pad", locals: { f: f, attr_sym1: :ws_price, attr_sym2: :local_ws_price } %>
+	
+	<dl class="col-xs-12 col-sm-offset-5 col-sm-5 col-lg-offset-5 col-lg-4 text-right">
+		<dt>目前毛利</dt>
+		<dd>
+			NT$<code id="product_gross_profit">0</code>元
+			，約<code id="product_gross_profit_percentage">0</code>%
+		</dd>
+	</dl>
+	<div class="clearfix"></div>
+
 	<div class="form-group">
-		<%= f.label :rr_price, class: "col-lg-2 control-label" %>
-		<div class="col-lg-2 pr-0">
+		<%= f.label :shipping_weight, class: "col-xs-12 col-sm-2 col-lg-2 control-label" %>
+		<div class="col-xs-12 col-sm-4 col-lg-3">
 		  <div class="input-group">
-		    <span class="input-group-addon"><i class="fa fa-yen"></i></span>
-		    <%= f.text_field :rr_price, class: "form-control" %>
+		    <%= f.input_field :shipping_weight, class: "form-control", type: :text, pattern: "\\d*" %>
+		    <span class="input-group-addon">g</span>
 		  </div>
 		</div>
-		<div class="col-md-1 text-center" style="padding: 9px 0px;">等於</div>
-		<div class="col-lg-2 pl-0">
+		<div class="col-xs-2 col-sm-1 text-center" style="padding: 9px 0px;"><i class="fa fa-arrow-right"></i></div>
+		<div class="col-xs-10 col-sm-4 col-lg-3">
 		  <div class="input-group">
 		    <span class="input-group-addon">NT$</span>
-		    <%= text_field_tag :local_rr_price, nil, class: "form-control" %>
+		    <%= text_field_tag :shipping_fee, nil, class: "form-control", type: :text, pattern: "\\d*" %>
 		  </div>
 		</div>
 	</div>
-	<div class="form-group">
-		<%= f.label :ws_price, class: "col-lg-2 control-label" %>
-		<div class="col-lg-2 pr-0">
-		  <div class="input-group">
-		    <span class="input-group-addon"><i class="fa fa-yen"></i></span>
-		    <%= f.text_field :ws_price, class: "form-control" %>
-		  </div>
-		</div>
-		<div class="col-md-1 text-center" style="padding: 9px 0px;">等於</div>
-		<div class="col-lg-2 pl-0">
-		  <div class="input-group">
-		    <span class="input-group-addon">NT$</span>
-		    <%= text_field_tag :local_ws_price, nil, class: "form-control" %>
-		  </div>
-		</div>
-	</div>
-	<div class="form-group">
-		<%= f.label :shipping_weight, class: "col-lg-2 control-label" %>
-		<div class="col-lg-4">
-		  <div class="input-group">
-		    <%= f.text_field :shipping_weight, class: "form-control" %>
-		    <span class="input-group-addon">公克（g)</span>
-		  </div>
-		 </div>
-		 <div class="col-md-2 text-center" style="padding: 9px 0px;">運費約 NTD 78 元</div>
-	</div>
-	<div class="col-lg-offset-2">
-		<p>批發價 ＋ 運費 ＝ 389 元</p>
-	</div>
+
 	<hr>
-	<div class="form-group">
-		<%= f.label :stock, class: "col-lg-2 control-label" %>
-		<div class="col-lg-2">
-	    <%= f.text_field :stock, class: "form-control", placeholder: "不限量" %>
-	  </div>
-	</div>
-	<div class="form-group">
-		<div class="col-lg-offset-2 col-lg-4">
-			<p class="help-block">請確認上述商品資料無誤</p>
-			<%= f.submit "儲存商品資料", class: "btn btn-primary" %>
-		</div>
+
+	<%= short_input_with_number_pad(f, :stock) %>
+
+	<div class="col-sm-offset-2 col-lg-offset-2">
+		<%= f.button :submit, class: "btn btn-primary" %>
 	</div>
 <% end %>
+<% # TODO 此處載入當日匯率，提示就會根據此值顯示，欄位計算也是 %>
+<%= hidden_field_tag :today_currency, "0.283" %>
+<script type="text/javascript">
+
+	$(document).on("turbolinks:load", function() {
+		// 將匯率提示更新為伺服器當日匯率 %>
+		var today_currency = $("#today_currency").val()
+		$("#today_currency_hint").html(today_currency)
+	})
+	// 以下四段為外幣台幣互換
+	$("body.admin").on("input", "input#product_rr_price", function() {
+		var today_currency = $("#today_currency").val()
+		$("input#local_rr_price").val( Math.round($(this).val() * today_currency) )
+	})
+	$("body.admin").on("input", "input#product_ws_price", function() {
+		var today_currency = $("#today_currency").val()
+		$("input#local_ws_price").val( Math.round($(this).val() * today_currency) )
+	})
+	$("body.admin").on("input", "input#local_rr_price", function() {
+		var today_currency = $("#today_currency").val()
+		$("input#product_rr_price").val( Math.round($(this).val() / today_currency) )
+	})
+	$("body.admin").on("input", "input#local_ws_price", function() {
+		var today_currency = $("#today_currency").val()
+		$("input#product_ws_price").val( Math.round($(this).val() / today_currency) )
+	})
+	// 以上四段為外幣台幣互換
+	$("body.admin").on("input", "input#local_rr_price, input#local_ws_price", function() {
+		update_product_gross_profit_and_percentage()
+	})
+
+	function update_product_gross_profit_and_percentage() {
+		var ws_price = $("input#local_ws_price").val()
+		var rr_price = $("input#local_rr_price").val()
+		if ((ws_price.length > 0) && (rr_price.length > 0)) {
+			$("#product_gross_profit").html( rr_price - ws_price )
+			$("#product_gross_profit_percentage").html( Math.round( (rr_price - ws_price) / rr_price * 1000 ) / 10 )
+			if (parseInt(rr_price) > parseInt(ws_price)) {
+				$("#product_gross_profit, #product_gross_profit_percentage").addClass("bg-success text-success")
+			} else {
+				$("#product_gross_profit, #product_gross_profit_percentage").removeClass("bg-success text-success")
+			}
+		} else {
+			$("#product_gross_profit, #product_gross_profit_percentage").removeClass("bg-success text-success").html("0")
+		}
+	}
+</script>

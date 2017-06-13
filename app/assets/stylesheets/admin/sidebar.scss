@@ -1,0 +1,28 @@
+.admin {
+	.nav.nav-pills.nav-stacked {
+		& > li > a {
+			@media (min-width: 992px) {
+				padding: 10px 15px;
+			}
+			@media (max-width: 991px) {
+				padding: 10px 0px;
+			}
+		}
+		.navbar-form .search-form-input input {	
+			@media (min-width: 768px) {
+				width: 350px;
+			}
+			@media (max-width: 767px) {
+				width: 300px;
+			}
+		}
+	}
+	.sidebar-wrapper {
+		@media (min-width: 768px) {
+			padding: 10px 15px;
+		}
+		@media (max-width: 767px) {
+			padding: 10px 0px 10px 5px;
+		}
+	}
+}
