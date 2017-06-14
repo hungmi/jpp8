@@ -57,6 +57,7 @@ gem 'awesome_rails_console'
 gem "font-awesome-rails"
 gem "chartkick"
 gem 'simple_form'
+gem 'device_detector'
 
 group :development, :test do
   gem 'pry-byebug'

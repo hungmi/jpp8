@@ -25,7 +25,11 @@ $semi-primary-color: #a02d36;
 		}
 		@media (max-width: 767px) {
 			padding: 10px 0px 10px 5px;
-		}		
+		}
+		.text-v-center {
+			padding-top: 9px;
+			padding-bottom: 9px;
+		}
 	}
 	nav.navbar-primary {
 		margin-bottom: 0px;
