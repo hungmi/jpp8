@@ -19,7 +19,7 @@ WORKDIR /app
 # will be cached unless changes to one of those two files 
 # are made.
 COPY Gemfile Gemfile.lock ./ 
-RUN gem install bundler && bundle install --jobs 20 --retry 5
+RUN gem install bundler && bundle install --jobs 20 --retry 5 --without development test
 
 # Set Rails to run in production
 ENV RAILS_ENV production 
@@ -28,6 +28,9 @@ ENV RAILS_SERVE_STATIC_FILES true
 
 # Copy the main application.
 COPY . ./
+
+# Precompile Rails assets
+RUN bundle exec rake assets:precompile
 
 # The main command to run when the container starts. Also 
 # tell the Rails dev server to bind to all interfaces by 
