@@ -11,7 +11,8 @@ WORKDIR /app
 # will be cached unless changes to one of those two files
 # are made.
 COPY Gemfile Gemfile.lock ./ 
-RUN apt-get update && apt-get install nodejs
+RUN apt-get update && apt-get install -y \
+		nodejs
 RUN gem install bundler && bundle install --jobs 20 --retry 5 --without development test
 
 # Set Rails to run in production
