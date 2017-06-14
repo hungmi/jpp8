@@ -24,6 +24,7 @@ RUN gem install bundler && bundle install --jobs 20 --retry 5
 # Set Rails to run in production
 ENV RAILS_ENV production 
 ENV RACK_ENV production
+ENV RAILS_SERVE_STATIC_FILES true
 
 # Copy the main application.
 COPY . ./
