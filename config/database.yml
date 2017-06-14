@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: jpp8_production
-  username: jpp8
-  password: <%= ENV['JPP8_DATABASE_PASSWORD'] %>
+  host: <%= DB_SERVER_PORT_5432_TCP_ADDR %>
+  port: <%= DB_SERVER_PORT_5432_TCP_PORT %>
