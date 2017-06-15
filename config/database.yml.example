@@ -81,5 +81,3 @@ test:
 production:
   <<: *default
   database: jpp8_production
-  host: <%= ENV["DB_SERVER_PORT_5432_TCP_ADDR"] %>
-  port: <%= ENV["DB_SERVER_PORT_5432_TCP_PORT"] %>
