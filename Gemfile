@@ -58,6 +58,7 @@ gem "font-awesome-rails"
 gem "chartkick"
 gem 'simple_form'
 gem 'device_detector'
+gem 'figaro'
 
 
 group :development, :test do
