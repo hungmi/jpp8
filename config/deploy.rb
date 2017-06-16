@@ -25,7 +25,7 @@ set :puma_threads, [0, 16]
 set :puma_workers, 0
 set :puma_worker_timeout, nil
 set :puma_init_active_record, true
-set :puma_preload_app, false
+set :puma_preload_app, true
 
 # Whenever is cron job scheduler
 set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
@@ -46,6 +46,17 @@ namespace :deploy do
 	    upload! StringIO.new(File.read("config/database.yml")), "#{shared_path}/config/database.yml"
 	    upload! StringIO.new(File.read("config/application.yml")), "#{shared_path}/config/application.yml"
 	    upload! StringIO.new(File.read("config/application.yml")), "#{shared_path}/config/secrets.yml"
+	    upload! StringIO.new(File.read("config/nginx.conf")), "#{shared_path}/config/secrets.yml"
 	  end
 	end
+
+	desc 'Upload Nginx Setting.'
+	task :upload_nginx do
+	  on roles(:app) do
+	    execute "cp /etc/nginx/nginx.conf /etc/nginx/nginx2.conf"
+	    upload! StringIO.new(File.read("config/nginx.conf")), "/etc/nginx/nginx.conf"
+	  end
+	end
+
+	after :finishing, :restart
 end
