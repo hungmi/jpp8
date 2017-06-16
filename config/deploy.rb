@@ -3,7 +3,7 @@ lock '3.8.1'
 set :application, 'jpp8'
 set :repo_url, 'git@github.com:hungmi/jpp8.git' # Edit this to match your repository
 set :branch, :master
-set :deploy_to, '/home/deploy/railsapp'
+set :deploy_to, '/home/deploy/apps/jpp8'
 set :pty, true
 set :linked_files, %w{config/database.yml config/application.yml config/secrets.yml}
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/uploads}
