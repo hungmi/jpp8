@@ -1,9 +1,9 @@
 //= require rails-ujs
 //= require jquery
 //= require bootstrap-sprockets
-//= require jquery.dataTables.min
-//= require dataTables.bootstrap.min
-//= require dataTables.responsive
+//= require admin/jquery.dataTables.min
+//= require admin/dataTables.bootstrap.min
+//= require admin/dataTables.responsive
 //= require Chart.bundle
 //= require chartkick
 //= require turbolinks
