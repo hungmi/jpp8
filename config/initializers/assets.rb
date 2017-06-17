@@ -13,4 +13,4 @@ Rails.application.config.assets.paths << Rails.root.join('app/assets/stylesheets
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
-Rails.application.config.assets.precompile += %w( admin.scss admin.js raphael.min.js morris.min.js morris-data.js jquery.dataTables.min.js dataTables.bootstrap.min.js dataTables.responsive.js)
+Rails.application.config.assets.precompile += %w( admin/*.js admin/*.css )

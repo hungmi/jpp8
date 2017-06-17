@@ -17,8 +17,8 @@ set :puma_state, "#{shared_path}/tmp/pids/puma.state"
 set :puma_pid, "#{shared_path}/tmp/pids/puma.pid"
 set :puma_bind, "unix://#{shared_path}/tmp/sockets/puma.sock"    #accept array for multi-bind
 set :puma_conf, "#{shared_path}/puma.rb"
-set :puma_access_log, "#{shared_path}/log/puma_error.log"
-set :puma_error_log, "#{shared_path}/log/puma_access.log"
+set :puma_access_log, "#{shared_path}/log/puma_access.log"
+set :puma_error_log, "#{shared_path}/log/puma_error.log"
 set :puma_role, :app
 set :puma_env, fetch(:rack_env, fetch(:rails_env, 'production'))
 set :puma_threads, [0, 16]
@@ -39,6 +39,14 @@ set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
 # end
 
 namespace :deploy do
+	desc 'Create Directories for Puma Pids and Socket'
+  task :make_dirs do
+    on roles(:app) do
+      execute "mkdir #{shared_path}/tmp/sockets -p"
+      execute "mkdir #{shared_path}/tmp/pids -p"
+    end
+  end
+
 	desc 'Upload YAML files.'
 	task :upload_yml do
 	  on roles(:app) do
@@ -49,13 +57,6 @@ namespace :deploy do
 	  end
 	end
 
-	desc 'Upload Nginx Setting.'
-	task :upload_nginx do
-	  on roles(:app) do
-	    execute "cp /etc/nginx/nginx.conf /etc/nginx/nginx2.conf"
-	    upload! StringIO.new(File.read("config/nginx.conf")), "/etc/nginx/nginx.conf"
-	  end
-	end
-
-	after :finishing, :restart
+  before :starting, :upload_yml
+  before :starting, :make_dirs
 end
