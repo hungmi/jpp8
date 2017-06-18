@@ -27,15 +27,11 @@
 	<hr>
 	<div class="form-group">
 		<%= label_tag "運送類型", nil, class: "col-xs-12 col-sm-2 col-lg-2 control-label" %>
-		<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-		  <%= select_tag :shipping_method, options_for_select([ "空運", "海運" ], "海運"), class: "form-control" %>
+		<div class="col-xs-6 col-sm-2 col-md-2 col-lg-2">
+		  <%= select_tag :shipping_method, grouped_options_for_select(Setting.get :available_shipping_methods), class: "form-control select2" %>
 		</div>
-		<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
-		  <%= select_tag :shipping_type, options_for_select([ "雜貨", "藥品", "食品", "家電" ], "雜貨"), class: "form-control" %>
-		</div>
-		<div class="col-xs-2 col-sm-1 text-center text-v-center ph-0"><i class="fa fa-arrow-right"></i></div>
-		<div class="col-xs-10 col-sm-4 col-lg-3 text-v-center">
-			運費計算：390 元 / 公斤
+		<div class="col-xs-6 col-sm-4 col-lg-3 text-v-center">
+			運費單位：<strong id="shipping_fee">0</strong> 元 / 公斤
 		</div>
 	</div>
 	<div class="form-group">
@@ -46,12 +42,8 @@
 		    <span class="input-group-addon">g</span>
 		  </div>
 		</div>
-		<div class="col-xs-2 col-sm-1 text-center text-v-center ph-0"><i class="fa fa-arrow-right"></i></div>
-		<div class="col-xs-10 col-sm-4 col-lg-3">
-		  <div class="input-group">
-		    <span class="input-group-addon">NT$</span>
-		    <%= number_pad_input(:shipping_fee) %>
-		  </div>
+		<div class="col-xs-6 col-sm-4 col-lg-3 text-v-center">
+			運費預估：NT＄<strong id="total_shipping_fee">0</strong> 元
 		</div>
 	</div>
 
@@ -66,20 +58,41 @@
 <% # TODO 此處載入當日匯率，提示就會根據此值顯示，欄位計算也是 %>
 <%= hidden_field_tag :today_currency, "0.283" %>
 <script type="text/javascript">
+	$("body.admin").on("input change", "select#shipping_method, input#product_shipping_weight", function() {
+		update_shipping_fee()
+	})
+
+	var update_shipping_fee = function () {
+		var shipping_fee = $("#shipping_method").val()
+		$("#shipping_fee").html(shipping_fee)
+		var shipping_weight = $("#product_shipping_weight").val()
+		if (shipping_weight !== null && shipping_weight > 0) {
+			$("#total_shipping_fee").html(parseInt(shipping_weight) / 1000 * parseInt(shipping_fee))
+		}
+	}
 
 	$(document).on("turbolinks:load", function() {
+		update_shipping_fee()
+		update_local_price()
 		// 將匯率提示更新為伺服器當日匯率 %>
 		var today_currency = $("#today_currency").val()
 		$("#today_currency_hint").html(today_currency)
 	})
-	// 以下四段為外幣台幣互換
-	$("body.admin").on("input", "input#product_rr_price", function() {
+
+	var update_local_price = function () {
 		var today_currency = $("#today_currency").val()
-		$("input#local_rr_price").val( Math.round($(this).val() * today_currency) ).trigger("change")
-	})
-	$("body.admin").on("input", "input#product_ws_price", function() {
-		var today_currency = $("#today_currency").val()
-		$("input#local_ws_price").val( Math.round($(this).val() * today_currency) ).trigger("change")
+		var product_rr_price = $("input#product_rr_price").val()
+		if (product_rr_price != null && product_rr_price.length > 0) {
+			$("input#local_rr_price").val( Math.round(product_rr_price * today_currency) ).trigger("change")
+		}
+		var product_ws_price = $("input#product_ws_price").val()
+		if (product_ws_price != null && product_ws_price.length > 0) {
+			$("input#local_ws_price").val( Math.round(product_ws_price * today_currency) ).trigger("change")
+		}
+	}
+	// 以下為外幣台幣互換
+	$("body.admin").on("input", "input#product_rr_price, input#product_ws_price", function() {
+		update_local_price()
 	})
 	$("body.admin").on("input", "input#local_rr_price", function() {
 		var today_currency = $("#today_currency").val()
@@ -89,7 +102,7 @@
 		var today_currency = $("#today_currency").val()
 		$("input#product_ws_price").val( Math.round($(this).val() / today_currency) )
 	})
-	// 以上四段為外幣台幣互換
+	// 以上為外幣台幣互換
 	$("body.admin").on("input change", "input#local_rr_price, input#local_ws_price", function() {
 		update_product_gross_profit_and_percentage()
 	})

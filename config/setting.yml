@@ -1,0 +1,7 @@
+development:
+  available_shipping_methods:
+    空運:
+      雜貨: 250
+      食品: 250
+      家電: 250
+      藥品: 300
