@@ -4,6 +4,7 @@ default: &default
       雜貨: 250
       食品: 250
       家電: 250
+      玩具: 250
       藥品: 300
 
 development:
