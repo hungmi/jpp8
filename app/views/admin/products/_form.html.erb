@@ -1,7 +1,7 @@
 <%= simple_form_for [:admin, @product], wrapper: :horizontal_form, html: { class: "form-horizontal" } do |f| %>
 	<%= f.input :tw_name %>
 	<%= f.input :foreign_name %>
-	<%= f.association :category %>
+	<%= f.association :category, include_blank: "請選擇", input_html: { class: "select2" } %>
 	<%= f.input :origin %>
 	<%= f.input :description, as: :text, input_html: { rows: 8 } %>
 	<hr>

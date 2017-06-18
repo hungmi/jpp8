@@ -59,6 +59,7 @@ gem "chartkick"
 gem 'simple_form'
 gem 'device_detector'
 gem 'figaro'
+gem "select2-rails"
 
 
 group :development, :test do

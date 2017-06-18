@@ -6,4 +6,13 @@
 //= require admin/dataTables.responsive
 //= require Chart.bundle
 //= require chartkick
+//= require select2
+//= require select2_locale_zh-TW
 //= require turbolinks
+
+$(document).on("turbolinks:load", function() {
+	$( ".select2" ).select2({
+	  theme: "bootstrap",
+	  language: "zh-TW"
+	});	
+})
