@@ -1,11 +1,11 @@
 default: &default
   available_shipping_methods:
     空運:
-      雜貨: 250
-      食品: 250
-      家電: 250
-      玩具: 250
-      藥品: 300
+      空運-雜貨: 250
+      空運-食品: 250
+      空運-家電: 250
+      空運-玩具: 250
+      空運-藥品: 300
 
 development:
   <<: *default
