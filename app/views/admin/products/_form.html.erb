@@ -1,9 +1,9 @@
 <%= simple_form_for [:admin, @product], wrapper: :horizontal_form, html: { class: "form-horizontal" } do |f| %>
-	<%= render "form_partials/basic", f: f %>
+	<%= render "admin/products/form_partials/basic", f: f %>
 	<hr>
-	<%= render "form_partials/price", f: f %>
+	<%= render "admin/products/form_partials/price", f: f %>
 	<hr>
-	<%= render "form_partials/shipping", f: f %>
+	<%= render "admin/products/form_partials/shipping", f: f %>
 	<hr>
 	<%= short_input_with_number_pad(f, :stock) %>
 	<div class="col-sm-offset-2 col-lg-offset-2">

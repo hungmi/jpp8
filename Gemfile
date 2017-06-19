@@ -60,6 +60,8 @@ gem 'simple_form'
 gem 'device_detector'
 gem 'figaro'
 gem "select2-rails"
+gem 'sidekiq'
+gem 'whenever', :require => false
 
 
 group :development, :test do
@@ -74,4 +76,4 @@ gem 'capistrano3-puma'
 gem 'capistrano-rails', require: false
 gem 'capistrano-bundler', require: false
 gem 'capistrano-rvm'
-# gem 'capistrano3-delayed-job', '~> 1.0'
+gem 'capistrano-sidekiq'

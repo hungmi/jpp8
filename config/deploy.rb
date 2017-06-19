@@ -30,14 +30,6 @@ set :puma_preload_app, true
 # Whenever is cron job scheduler
 set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
 
-# set :delayed_job_workers, 1
-# set :delayed_job_prefix, 'products'
-# set :delayed_job_queues, ['product_magics']
-# set :delayed_job_roles, [:app, :background]
-# after 'deploy:published', 'delayed_job:restart' do
-#   invoke 'delayed_job:restart'
-# end
-
 namespace :deploy do
 	desc 'Create Directories for Puma Pids and Socket'
   task :make_dirs do
