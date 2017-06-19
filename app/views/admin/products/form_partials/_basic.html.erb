@@ -1,0 +1,16 @@
+<%= f.input :tw_name %>
+<%= f.input :foreign_name %>
+<div class="form-group">
+	<label class="col-sm-2 col-lg-2 control-label string optional" for="product_tw_name"><%= Product.human_attribute_name(:category) %></label>
+	<div class="col-sm-7 col-lg-5">
+		<%= f.select :category, Category.all.collect { |category| [category.name, category.id] }, { include_blank: "請選擇" }, class: "form-control select2" %>
+	</div>
+	<div class="col-sm-2 col-lg-2">
+		<%= link_to "#", class: "btn btn-link pull-right" do %>
+			<i class="fa fa-plus fa-fw"></i>
+			<%= "新增#{Product.human_attribute_name(:category)}" %>
+		<% end %>
+	</div>
+</div>
+<%= f.input :origin %>
+<%= f.input :description, as: :text, input_html: { rows: 8 } %>

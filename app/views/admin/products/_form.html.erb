@@ -1,135 +1,14 @@
 <%= simple_form_for [:admin, @product], wrapper: :horizontal_form, html: { class: "form-horizontal" } do |f| %>
-	<%= f.input :tw_name %>
-	<%= f.input :foreign_name %>
-	<div class="form-group">
-		<label class="col-sm-2 col-lg-2 control-label string optional" for="product_tw_name"><%= Product.human_attribute_name(:category) %></label>
-		<div class="col-sm-7 col-lg-5">
-			<%= f.select :category, Category.all.collect { |category| [category.name, category.id] }, { include_blank: "請選擇" }, class: "form-control select2" %>
-		</div>
-		<div class="col-sm-2 col-lg-2">
-			<%= link_to "#", class: "btn btn-link pull-right" do %>
-				<i class="fa fa-plus fa-fw"></i>
-				<%= "新增#{Product.human_attribute_name(:category)}" %>
-			<% end %>
-		</div>
-	</div>
-	<%= f.input :origin %>
-	<%= f.input :description, as: :text, input_html: { rows: 8 } %>
+	<%= render "form_partials/basic", f: f %>
 	<hr>
-
-	<dl class="col-xs-12 col-sm-offset-2 col-sm-5 col-lg-offset-2 col-lg-4">
-		<dt>本日匯率</dt>
-		<dd><i class="fa fa-yen"></i> <strong>1</strong> 日圓 ＝ NT$ <strong id="today_currency_hint">0.0</strong></dd>
-	</dl>
-	<div class="clearfix"></div>
-
-	<%= render partial: "admin/partials/input_group_with_number_pad", locals: { f: f, attr_sym1: :rr_price, attr_sym2: :local_rr_price } %>
-	<%= render partial: "admin/partials/input_group_with_number_pad", locals: { f: f, attr_sym1: :ws_price, attr_sym2: :local_ws_price } %>
-
-	<dl class="col-xs-12 col-sm-offset-6 col-sm-5 col-lg-offset-5 col-lg-4 text-right">
-		<dt>目前毛利</dt>
-		<dd>
-			NT$<code id="product_gross_profit">0</code>元
-			，約<code id="product_gross_profit_percentage">0</code>%
-		</dd>
-	</dl>
-	<div class="clearfix"></div>
-
+	<%= render "form_partials/price", f: f %>
 	<hr>
-	<div class="form-group">
-		<%= label_tag "運送類型", nil, class: "col-xs-12 col-sm-2 col-lg-2 control-label" %>
-		<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
-		  <%= select_tag :shipping_method, grouped_options_for_select(Setting.get :available_shipping_methods), class: "form-control select2" %>
-		</div>
-		<div class="col-xs-6 col-sm-4 col-lg-3 text-v-center ph-0">
-			運費：NT＄<strong id="shipping_fee">0</strong> 元 / 公斤
-		</div>
-	</div>
-	<div class="form-group">
-		<%= f.label :shipping_weight, class: "col-xs-12 col-sm-2 col-lg-2 control-label" %>
-		<div class="col-xs-12 col-sm-4 col-lg-4">
-		  <div class="input-group">
-		  	<%= number_pad_input(:shipping_weight, f, { placeholder: "請輸入重量預估運費" }) %>
-		    <span class="input-group-addon">g</span>
-		  </div>
-		</div>
-		<div class="col-xs-6 col-sm-4 col-lg-3 text-v-center">
-			運費預估：NT＄<strong id="total_shipping_fee">0</strong> 元
-		</div>
-	</div>
-
+	<%= render "form_partials/shipping", f: f %>
 	<hr>
-
 	<%= short_input_with_number_pad(f, :stock) %>
-
 	<div class="col-sm-offset-2 col-lg-offset-2">
 		<%= f.button :submit, class: "btn btn-primary" %>
 	</div>
 <% end %>
+
 <%= hidden_field_tag :today_currency, "0.283" %>
-<script type="text/javascript">
-	$("body.admin").on("input change", "select#shipping_method, input#product_shipping_weight", function() {
-		update_shipping_fee()
-	})
-
-	var update_shipping_fee = function () {
-		var shipping_fee = $("#shipping_method").val()
-		$("#shipping_fee").html(shipping_fee)
-		var shipping_weight = $("#product_shipping_weight").val()
-		if (shipping_weight !== null && shipping_weight > 0) {
-			$("#total_shipping_fee").html(parseInt(shipping_weight) / 1000 * parseInt(shipping_fee))
-		}
-	}
-
-	$(document).on("turbolinks:load", function() {
-		update_shipping_fee()
-		update_local_price()
-		// 將匯率提示更新為伺服器當日匯率 %>
-		var today_currency = $("#today_currency").val()
-		$("#today_currency_hint").html(today_currency)
-	})
-
-	var update_local_price = function () {
-		var today_currency = $("#today_currency").val()
-		var product_rr_price = $("input#product_rr_price").val()
-		if (product_rr_price != null && product_rr_price.length > 0) {
-			$("input#local_rr_price").val( Math.round(product_rr_price * today_currency) ).trigger("change")
-		}
-		var product_ws_price = $("input#product_ws_price").val()
-		if (product_ws_price != null && product_ws_price.length > 0) {
-			$("input#local_ws_price").val( Math.round(product_ws_price * today_currency) ).trigger("change")
-		}
-	}
-	// 以下為外幣台幣互換
-	$("body.admin").on("input", "input#product_rr_price, input#product_ws_price", function() {
-		update_local_price()
-	})
-	$("body.admin").on("input", "input#local_rr_price", function() {
-		var today_currency = $("#today_currency").val()
-		$("input#product_rr_price").val( Math.round($(this).val() / today_currency) )
-	})
-	$("body.admin").on("input", "input#local_ws_price", function() {
-		var today_currency = $("#today_currency").val()
-		$("input#product_ws_price").val( Math.round($(this).val() / today_currency) )
-	})
-	// 以上為外幣台幣互換
-	$("body.admin").on("input change", "input#local_rr_price, input#local_ws_price", function() {
-		update_product_gross_profit_and_percentage()
-	})
-
-	function update_product_gross_profit_and_percentage() {
-		var ws_price = $("input#local_ws_price").val()
-		var rr_price = $("input#local_rr_price").val()
-		if ((ws_price.length > 0) && (rr_price.length > 0)) {
-			$("#product_gross_profit").html( rr_price - ws_price )
-			$("#product_gross_profit_percentage").html( Math.round( (rr_price - ws_price) / rr_price * 1000 ) / 10 )
-			if (parseInt(rr_price) > parseInt(ws_price)) {
-				$("#product_gross_profit, #product_gross_profit_percentage").addClass("bg-success text-success")
-			} else {
-				$("#product_gross_profit, #product_gross_profit_percentage").removeClass("bg-success text-success")
-			}
-		} else {
-			$("#product_gross_profit, #product_gross_profit_percentage").removeClass("bg-success text-success").html("0")
-		}
-	}
-</script>

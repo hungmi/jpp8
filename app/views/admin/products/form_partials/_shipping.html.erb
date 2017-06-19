@@ -1,0 +1,40 @@
+<div class="form-group">
+	<%= label_tag "運送類型", nil, class: "col-xs-12 col-sm-2 col-lg-2 control-label" %>
+	<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
+	  <%= select_tag :shipping_method, grouped_options_for_select(Setting.get :available_shipping_methods), class: "form-control select2" %>
+	</div>
+	<div class="col-xs-6 col-sm-4 col-lg-3 text-v-center ph-0">
+		運費：NT＄<strong id="shipping_fee">0</strong> 元 / 公斤
+	</div>
+</div>
+<div class="form-group">
+	<%= f.label :shipping_weight, class: "col-xs-12 col-sm-2 col-lg-2 control-label" %>
+	<div class="col-xs-12 col-sm-4 col-lg-4">
+	  <div class="input-group">
+	  	<%= number_pad_input(:shipping_weight, f, { placeholder: "請輸入重量預估運費" }) %>
+	    <span class="input-group-addon">g</span>
+	  </div>
+	</div>
+	<div class="col-xs-6 col-sm-4 col-lg-3 text-v-center">
+		運費預估：NT＄<strong id="total_shipping_fee">0</strong> 元
+	</div>
+</div>
+
+<script type="text/javascript">
+	$("body.admin").on("input change", "select#shipping_method, input#product_shipping_weight", function() {
+		update_shipping_fee()
+	})
+
+	var update_shipping_fee = function () {
+		var shipping_fee = $("#shipping_method").val()
+		$("#shipping_fee").html(shipping_fee)
+		var shipping_weight = $("#product_shipping_weight").val()
+		if (shipping_weight !== null && shipping_weight > 0) {
+			$("#total_shipping_fee").html(parseInt(shipping_weight) / 1000 * parseInt(shipping_fee))
+		}
+	}
+
+	$(document).on("turbolinks:load", function() {
+		update_shipping_fee()
+	})
+</script>
