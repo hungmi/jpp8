@@ -5,8 +5,9 @@
 
 # Example:
 #
+env :PATH, ENV['PATH']
 set :output, "log/cron.log"
-every 1.day, :at => "#{(Time.current + 3.minute).strftime("%H:%M %P")}" do
+every 1.day, :at => "#{(Time.now + 2.minute).strftime("%H:%M %P")}" do
   rake "cron:check_cron_job_works"
 end
 
